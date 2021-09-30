@@ -14,7 +14,8 @@ class StockSpider(scrapy.Spider):
         for node in item_nodes:
             item_loader = StockstarItemLoader(item=StockstarItem(),selector=node)
             item_loader.add_css("code", "td:nth-child(1) a::text")
-            item_loader.add_css("abbr", "td:nth-child(2) a::text")
+            item_loader.add_css("abbr", "td:nth-child(2) a::"
+                                        "")
             item_loader.add_css("last_trade", "td:nth-child(3)::text")
             item_loader.add_css("chg_ratio", "td:nth-child(4)::text")
             item_loader.add_css("chg_amt", "td:nth-child(5)::text")
